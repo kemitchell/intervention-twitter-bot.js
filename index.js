@@ -26,7 +26,10 @@ requiredEnvVars.forEach(function (required) {
 
 var levelup = level('intervention-twitter-bot.leveldb')
 levelup.get('sequence', function (error, from) {
-  if (error) die(error)
+  if (error) {
+    if (error.notFound) from = undefined
+    else die(error)
+  }
 
   var intervention = new Intervention(levelup, from)
   .on('dependency', function (user, depending, dependency) {
