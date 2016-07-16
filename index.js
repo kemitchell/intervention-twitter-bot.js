@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var Intervention = require('intervention')
 var Twit = require('twit')
 var https = require('https')

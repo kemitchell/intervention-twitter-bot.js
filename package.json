@@ -2,6 +2,7 @@
   "name": "intervention-twitter-bot",
   "version": "0.0.0",
   "description": "",
+  "bin": "./index.js",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "repository": "kemitchell/intervention-twitter-bot.js",
   "license": "MIT",
