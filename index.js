@@ -29,7 +29,7 @@ levelup.get('sequence', function (error, from) {
   if (error) {
     if (error.notFound) from = undefined
     else die(error)
-  }
+  } else from = Number(from)
 
   log.info({event: 'following', from: from})
   var intervention = new Intervention(levelup, from)
