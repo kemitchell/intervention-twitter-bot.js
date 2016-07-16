@@ -11,7 +11,7 @@ var log = pino()
 var env = process.env
 var requiredEnvVars = [
   'TWITTER_CONSUMER_KEY',
-  'TWITTER_CONSUMER_SECRE,',
+  'TWITTER_CONSUMER_SECRET',
   'TWITTER_ACCESS_TOKEN',
   'TWITTER_ACCESS_TOKEN_SECRET',
   'TWITTER_HANDLE'
