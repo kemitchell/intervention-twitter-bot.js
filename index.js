@@ -30,7 +30,7 @@ levelup.get('sequence', function (error, from) {
 
   var intervention = new Intervention(levelup, from)
   .on('dependency', function (user, depending, dependency) {
-    pino.info({
+    log.info({
       event: 'dependency',
       user: user,
       depending: depending,
@@ -38,7 +38,7 @@ levelup.get('sequence', function (error, from) {
     })
   })
   .on('devDependency', function (user, depending, dependency) {
-    pino.info({
+    log.info({
       event: 'devDependency',
       user: user,
       depending: depending,
@@ -111,6 +111,6 @@ levelup.get('sequence', function (error, from) {
 })
 
 function die (error) {
-  pino.error(error)
+  log.error(error)
   process.exit(1)
 }
