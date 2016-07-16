@@ -31,6 +31,7 @@ levelup.get('sequence', function (error, from) {
     else die(error)
   }
 
+  log.info({event: 'following', from: from})
   var intervention = new Intervention(levelup, from)
   .on('dependency', function (user, depending, dependency) {
     log.info({
@@ -49,6 +50,7 @@ levelup.get('sequence', function (error, from) {
     })
   })
 
+  log.info({event: 'requesting update_seq'})
   https.get('https://replicate.npmjs.com', function (response) {
     var buffer = []
     response
@@ -58,6 +60,7 @@ levelup.get('sequence', function (error, from) {
       var body = Buffer.concat(buffer)
       parseJSON(body, function (error, data) {
         if (error) die(error)
+        log.info({event: 'update_seq', value: data.update_seq})
         startBotWhenCaughtUp(data.update_seq)
       })
     })
@@ -67,7 +70,9 @@ levelup.get('sequence', function (error, from) {
     var interval = setInterval(
       function checkIfCaughtUp () {
         var current = intervention.sequence()
+        log.info({event: 'progress', current: current, target: target})
         if (current >= target) {
+          log.info({event: 'caught up', current: current, target: target})
           clearInterval(interval)
           startBot()
           emitEventsForSaved()
