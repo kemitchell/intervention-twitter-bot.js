@@ -77,7 +77,8 @@ levelup.get('sequence', function (error, from) {
           startBot()
           emitEventsForSaved()
         }
-      }
+      },
+      10 * 1000
     )
   }
 
