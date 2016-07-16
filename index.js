@@ -50,6 +50,8 @@ levelup.get('sequence', function (error, from) {
     })
   })
 
+  intervention.start()
+
   log.info({event: 'requesting update_seq'})
   https.get('https://replicate.npmjs.com', function (response) {
     var buffer = []
