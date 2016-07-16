@@ -1,0 +1,15 @@
+{
+  "name": "intervention-twitter-bot",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
+  "repository": "kemitchell/intervention-twitter-bot.js",
+  "license": "MIT",
+  "dependencies": {
+    "intervention": "^1.1.0",
+    "json-parse-errback": "^2.0.0",
+    "level": "^1.4.0",
+    "pino": "^2.7.3",
+    "twit": "^2.2.4"
+  }
+}
